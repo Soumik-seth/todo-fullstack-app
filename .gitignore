@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment variables
+.env
+*.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Build outputs
+build/
+dist/
+*/build/
+*/dist/
+
+# OS generated files
+.DS_Store
+Thumbs.db
