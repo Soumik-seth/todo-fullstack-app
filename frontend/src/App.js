@@ -8,7 +8,7 @@ import { Todos } from "./components/Todos";
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
-
+import API_BASE_URL from "./apiConfig";
 function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +24,7 @@ function App() {
     
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/todos", {
+      const response = await fetch(`${API_BASE_URL}/api/todos`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -53,7 +53,7 @@ function App() {
   const addTodo = async (title, desc) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/todos", {
+      const response = await fetch(`${API_BASE_URL}/api/todos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ function App() {
   const onDelete = async (todo) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:5000/api/todos/${todo._id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/todos/${todo._id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`

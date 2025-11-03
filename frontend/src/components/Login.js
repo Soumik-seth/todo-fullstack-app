@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import API_BASE_URL from "../apiConfig";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ export const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/login", {
+      const response = await fetch(`${API_BASE_URL}/api/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -70,7 +71,7 @@ export const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/forgot-password", {
+      const response = await fetch(`${API_BASE_URL}/api/users/forgot-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: forgotEmail }),
@@ -110,7 +111,7 @@ export const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/verify-otp", {
+      const response = await fetch(`${API_BASE_URL}/api/users/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: forgotEmail, otp }),
@@ -156,7 +157,7 @@ export const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/reset-password", {
+      const response = await fetch(`${API_BASE_URL}/api/users/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ resetToken, password: newPassword }),
